@@ -1,15 +1,17 @@
 // import React from 'react'
 
+import Link from "next/link"
+
 const Header = () => {
     return (
         <div>
             <header className="header">
                 <div className="main-menu">
                     <h1>
-                        <a href="/" className="button logo link-button"
-                        ><span className="mobile-short-label">TGC</span
-                        ><span className="desktop-long-label">THE GOOD CORNER</span></a
-                        >
+                        <Link href="/" className="button logo link-button">
+                            <span className="mobile-short-label">TGC</span>
+                            <span className="desktop-long-label">THE GOOD CORNER</span>
+                        </Link>
                     </h1>
                     <form className="text-field-with-button">
                         <input className="text-field main-search-field" type="search" />
@@ -30,10 +32,10 @@ const Header = () => {
                             </svg>
                         </button>
                     </form>
-                    <a href="/post-ad" className="button link-button"
-                    ><span className="mobile-short-label">Publier</span
-                    ><span className="desktop-long-label">Publier une annonce</span></a
-                    >
+                    <Link href="/post-ad" className="button link-button"
+                    ><span className="mobile-short-label">Publier</span>
+                        <span className="desktop-long-label">Publier une annonce</span>
+                    </Link>
                 </div>
                 <nav className="categories-navigation">
                     <a href="" className="category-navigation-link">Ameublement</a> •
