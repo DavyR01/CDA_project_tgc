@@ -11,7 +11,7 @@ import { Category } from "./category";
 import { Tag } from "./tag";
 
 @Entity()
-export class Ad extends BaseEntity {
+export className Ad extends BaseEntity {
   @PrimaryGeneratedColumn()
   id: number;
 
