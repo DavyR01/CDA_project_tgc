@@ -1,8 +1,54 @@
 // import React from 'react'
 
 import Link from "next/link"
+import CategoryCard, { CategoryCardProps } from "./CategoryCard"
 
 const Header = () => {
+    const categoriesList: CategoryCardProps[] = [
+        {
+            category: 'Jardinage'
+        },
+        {
+            category: 'Poterie'
+        },
+        {
+            category: 'Peinture'
+        },
+        {
+            category: 'Chaussures'
+        },
+        {
+            category: 'Sculpture'
+        },
+        {
+            category: 'Électroménager'
+        },
+        {
+            category: 'Photographie'
+        },
+        {
+            category: 'Informatique'
+        },
+        {
+            category: 'Vetements'
+        },
+        {
+            category: 'Peche'
+        },
+        {
+            category: 'Outillage'
+        },
+        {
+            category: 'Bébé'
+        },
+        {
+            category: 'Sport'
+        },
+        {
+            category: 'Services'
+        },
+    ]
+
     return (
         <div>
             <header className="header">
@@ -38,19 +84,12 @@ const Header = () => {
                     </Link>
                 </div>
                 <nav className="categories-navigation">
-                    <a href="" className="category-navigation-link">Ameublement</a> •
+                    {categoriesList.map((cat) => (
+                        <CategoryCard key={cat.category} category={cat.category} />
+                    ))}
+
                     <a href="" className="category-navigation-link">Électroménager</a> •
-                    <a href="" className="category-navigation-link">Photographie</a> •
-                    <a href="" className="category-navigation-link">Informatique</a> •
-                    <a href="" className="category-navigation-link">Téléphonie </a> •
-                    <a href="" className="category-navigation-link">Vélos</a> •
-                    <a href="" className="category-navigation-link">Véhicules</a> •
-                    <a href="" className="category-navigation-link">Sport</a> •
-                    <a href="" className="category-navigation-link">Habillement</a> •
-                    <a href="" className="category-navigation-link">Bébé</a> •
-                    <a href="" className="category-navigation-link">Outillage</a> •
-                    <a href="" className="category-navigation-link">Services </a> •
-                    <a href="" className="category-navigation-link">Vacances</a>
+
                 </nav>
             </header>
         </div>

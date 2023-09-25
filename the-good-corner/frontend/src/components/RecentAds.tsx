@@ -2,48 +2,47 @@
 // import { AdCardProps } from "./AdCard"
 
 import AdCard, { AdCardProps } from "./AdCard"
+const ads: AdCardProps[] = [
+    {
+        title: "Table",
+        price: 120,
+        link: "/ads/table",
+        imgUrl: "/images/table.webp",
+    },
+    {
+        title: "Bougie",
+        price: 4,
+        link: "/ads/bougie",
+        imgUrl: "/images/bougie.webp",
+    },
+    {
+        title: "Dame-Jeanne",
+        price: 80,
+        link: "/ads/dame-jeanne",
+        imgUrl: "/images/dame-jeanne.webp",
+    },
+    {
+        title: "Vide-Poche",
+        price: 15,
+        link: "/ads/vide-poche",
+        imgUrl: "/images/vide-poche.webp",
+    },
+    {
+        title: "Porte-Magazine",
+        price: 120,
+        link: "/ads/porte-magazine",
+        imgUrl: "/images/porte-magazine.webp",
+    },
+    {
+        title: "Vaisselier",
+        price: 450,
+        link: "/ads/vaisselier",
+        imgUrl: "/images/vaisselier.webp",
+    },
+]
+
 
 const RecentAds = () => {
-    const ads: AdCardProps[] = [
-        {
-            title: "Table",
-            imgUrl: "/images/table.webp",
-            link: "/ads/table",
-            price: 120
-        },
-        {
-            title: "Table",
-            imgUrl: "/images/bougie.webp",
-            link: "/ads/table",
-            price: 120
-        },
-        {
-            title: "Table",
-            imgUrl: "/images/dame-jeanne.webp",
-            link: "/ads/table",
-            price: 120
-        },
-        {
-            title: "Table",
-            imgUrl: "/images/vaisselier.webp",
-            link: "/ads/table",
-            price: 120
-        },
-        {
-            title: "Table",
-            imgUrl: "/images/vide-poche.webp",
-            link: "/ads/table",
-            price: 120
-        },
-        {
-            title: "Table",
-            imgUrl: "/images/porte-magazine.webp",
-            link: "/ads/table",
-            price: 120
-        },
-    ]
-
-
     return (
         <div>
             <h2>Annonces récentes</h2>
