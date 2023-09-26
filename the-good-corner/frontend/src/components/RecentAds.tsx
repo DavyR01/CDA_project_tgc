@@ -43,6 +43,8 @@ const ads: AdCardProps[] = [
 
 const RecentAds = () => {
     const [total, setTotal] = useState(0);
+    const [time, setTime] = useState(new Date())
+
     const everyRender = () => {
         console.log("This will be executed after every render");
     }
@@ -54,12 +56,14 @@ const RecentAds = () => {
             console.log("This will be executed after the first render only.Even if I change the state");
         }
         firstRenderOnly()
-    }, [])
+    }, [time])
 
     return (
         <div>
             <h2>Annonces récentes</h2>
             <p>Prix total: {total}</p>
+            <p>{time.toLocaleTimeString()}</p>
+            <button className="button" onClick={() => setTime(new Date())}>Bouton</button>
             <section className="recent-ads">
                 {ads.map(ad => (
                     <div key={ad.title}>
