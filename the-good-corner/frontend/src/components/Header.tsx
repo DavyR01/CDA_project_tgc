@@ -2,52 +2,67 @@
 
 import Link from "next/link"
 import CategoryCard, { CategoryCardProps } from "./CategoryCard"
+import { useEffect, useState } from "react"
+import axios from "axios"
+
+const categoriesList: CategoryCardProps[] = [
+    {
+        name: 'Jardinage'
+    },
+    {
+        name: 'Poterie'
+    },
+    {
+        name: 'Peinture'
+    },
+    {
+        name: 'Chaussures'
+    },
+    {
+        name: 'Sculpture'
+    },
+    {
+        name: 'Électroménager'
+    },
+    {
+        name: 'Photographie'
+    },
+    {
+        name: 'Informatique'
+    },
+    {
+        name: 'Vetements'
+    },
+    {
+        name: 'Peche'
+    },
+    {
+        name: 'Outillage'
+    },
+    {
+        name: 'Bébé'
+    },
+    {
+        name: 'Sport'
+    },
+    {
+        name: 'Services'
+    },
+]
 
 const Header = () => {
-    const categoriesList: CategoryCardProps[] = [
-        {
-            name: 'Jardinage'
-        },
-        {
-            name: 'Poterie'
-        },
-        {
-            name: 'Peinture'
-        },
-        {
-            name: 'Chaussures'
-        },
-        {
-            name: 'Sculpture'
-        },
-        {
-            name: 'Électroménager'
-        },
-        {
-            name: 'Photographie'
-        },
-        {
-            name: 'Informatique'
-        },
-        {
-            name: 'Vetements'
-        },
-        {
-            name: 'Peche'
-        },
-        {
-            name: 'Outillage'
-        },
-        {
-            name: 'Bébé'
-        },
-        {
-            name: 'Sport'
-        },
-        {
-            name: 'Services'
-        },
-    ]
+    const [categories, setCategories] = useState<CategoryCardProps[]>([])
+
+    useEffect(() => {
+        const fetchData = async () => {
+            const result = await axios.get<CategoryCardProps[]>("http://localhost:4000/category")
+            console.log(result);
+            console.log(result.data);
+            // console.log(result.headers);
+            setCategories(result.data)
+        }
+        fetchData()
+    }, [])
 
     return (
         <div>
@@ -84,7 +99,7 @@ const Header = () => {
                     </Link>
                 </div>
                 <nav className="categories-navigation">
-                    {categoriesList.map((cat) => (
+                    {categories.map((cat) => (
                         <CategoryCard key={cat.name} name={cat.name} />
                     ))}
                 </nav>
