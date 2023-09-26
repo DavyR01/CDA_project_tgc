@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
 import AdCard, { AdCardProps } from "./AdCard"
+import axios from "axios"
 
 const ads: AdCardProps[] = [
     {
@@ -45,10 +46,10 @@ const RecentAds = () => {
     const [total, setTotal] = useState(0);
     const [time, setTime] = useState(new Date())
 
-    const everyRender = () => {
-        console.log("This will be executed after every render");
-    }
-    everyRender();
+    // const everyRender = () => {
+    //     console.log("This will be executed after every render");
+    // }
+    // everyRender();
 
     useEffect(() => {
         const firstRenderOnly = () => {
@@ -57,6 +58,18 @@ const RecentAds = () => {
         }
         firstRenderOnly()
     }, [time])
+
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const result = await axios.get("http://localhost:4000/ad")
+                console.log(result);
+            } catch (error) {
+                console.log("error", error);
+            }
+        }
+        fetchData()
+    }, [])
 
     return (
         <div>
