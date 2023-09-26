@@ -1,7 +1,6 @@
-// import React from 'react'
-// import { AdCardProps } from "./AdCard"
-
+import { useState } from "react"
 import AdCard, { AdCardProps } from "./AdCard"
+
 const ads: AdCardProps[] = [
     {
         title: "Table",
@@ -43,18 +42,24 @@ const ads: AdCardProps[] = [
 
 
 const RecentAds = () => {
+    const [total, setTotal] = useState(0);
+
     return (
         <div>
             <h2>Annonces récentes</h2>
+            <p>Prix total: {total}</p>
             <section className="recent-ads">
                 {ads.map(ad => (
-                    < AdCard
-                        key={ad.imgUrl}
-                        link={ad.link}
-                        title={ad.title}
-                        imgUrl={ad.imgUrl}
-                        price={ad.price}
-                    />
+                    <div key={ad.title}>
+                        < AdCard
+                            key={ad.imgUrl}
+                            link={ad.link}
+                            title={ad.title}
+                            imgUrl={ad.imgUrl}
+                            price={ad.price}
+                        />
+                        <button className="button" onClick={() => setTotal(total + ad.price)}>Add price to total</button>
+                    </div>
                 ))}
             </section>
         </div>
