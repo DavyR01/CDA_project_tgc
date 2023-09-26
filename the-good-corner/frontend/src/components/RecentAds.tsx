@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import AdCard, { AdCardProps } from "./AdCard"
 
 const ads: AdCardProps[] = [
@@ -43,6 +43,18 @@ const ads: AdCardProps[] = [
 
 const RecentAds = () => {
     const [total, setTotal] = useState(0);
+    const everyRender = () => {
+        console.log("This will be executed after every render");
+    }
+    everyRender();
+
+    useEffect(() => {
+        const firstRenderOnly = () => {
+            setTotal(1);
+            console.log("This will be executed after the first render only.Even if I change the state");
+        }
+        firstRenderOnly()
+    }, [])
 
     return (
         <div>
