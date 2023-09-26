@@ -1,17 +1,17 @@
 import Link from "next/link";
 
 export type CategoryCardProps = {
-    category: string
+    name: string
 }
 
-const CategoryCard = ({ category }: CategoryCardProps) => {
+const CategoryCard = ({ name }: CategoryCardProps) => {
     return (
         <>
             <div>
-                <Link href="" className="category-navigation-link">{category}
+                <Link href="" className="category-navigation-link">{name}
                 </Link>
             </div>
-        </>
+        </>//
     );
 };
 

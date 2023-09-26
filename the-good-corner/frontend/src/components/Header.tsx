@@ -6,46 +6,46 @@ import CategoryCard, { CategoryCardProps } from "./CategoryCard"
 const Header = () => {
     const categoriesList: CategoryCardProps[] = [
         {
-            category: 'Jardinage'
+            name: 'Jardinage'
         },
         {
-            category: 'Poterie'
+            name: 'Poterie'
         },
         {
-            category: 'Peinture'
+            name: 'Peinture'
         },
         {
-            category: 'Chaussures'
+            name: 'Chaussures'
         },
         {
-            category: 'Sculpture'
+            name: 'Sculpture'
         },
         {
-            category: 'Électroménager'
+            name: 'Électroménager'
         },
         {
-            category: 'Photographie'
+            name: 'Photographie'
         },
         {
-            category: 'Informatique'
+            name: 'Informatique'
         },
         {
-            category: 'Vetements'
+            name: 'Vetements'
         },
         {
-            category: 'Peche'
+            name: 'Peche'
         },
         {
-            category: 'Outillage'
+            name: 'Outillage'
         },
         {
-            category: 'Bébé'
+            name: 'Bébé'
         },
         {
-            category: 'Sport'
+            name: 'Sport'
         },
         {
-            category: 'Services'
+            name: 'Services'
         },
     ]
 
@@ -85,11 +85,8 @@ const Header = () => {
                 </div>
                 <nav className="categories-navigation">
                     {categoriesList.map((cat) => (
-                        <CategoryCard key={cat.category} category={cat.category} />
+                        <CategoryCard key={cat.name} name={cat.name} />
                     ))}
-
-                    <a href="" className="category-navigation-link">Électroménager</a> •
-
                 </nav>
             </header>
         </div>
