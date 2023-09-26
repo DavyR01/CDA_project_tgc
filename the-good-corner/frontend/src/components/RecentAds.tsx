@@ -45,25 +45,22 @@ const ads: AdCardProps[] = [
 const RecentAds = () => {
     const [total, setTotal] = useState(0);
     const [time, setTime] = useState(new Date())
+    const [adsFetch, setAdsFetch] = useState<AdCardProps[]>([])
 
-    // const everyRender = () => {
-    //     console.log("This will be executed after every render");
-    // }
-    // everyRender();
-
-    useEffect(() => {
-        const firstRenderOnly = () => {
-            setTotal(1);
-            console.log("This will be executed after the first render only.Even if I change the state");
-        }
-        firstRenderOnly()
-    }, [time])
+    // useEffect(() => {
+    //     const firstRenderOnly = () => {
+    //         setTotal(1);
+    //         console.log("This will be executed after the first render only.Even if I change the state");
+    //     }
+    //     firstRenderOnly()
+    // }, [time])
 
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const result = await axios.get("http://localhost:4000/ad")
+                const result = await axios.get<AdCardProps[]>("http://localhost:4000/ad")
                 console.log(result);
+                setAdsFetch(result.data)
             } catch (error) {
                 console.log("error", error);
             }
@@ -78,8 +75,8 @@ const RecentAds = () => {
             <p>{time.toLocaleTimeString()}</p>
             <button className="button" onClick={() => setTime(new Date())}>Bouton</button>
             <section className="recent-ads">
-                {ads.map(ad => (
-                    <div key={ad.title}>
+                {adsFetch.map((ad, index) => (
+                    <div key={index}>
                         < AdCard
                             key={ad.imgUrl}
                             link={ad.link}
