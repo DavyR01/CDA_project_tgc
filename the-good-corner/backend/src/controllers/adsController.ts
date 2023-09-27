@@ -16,6 +16,19 @@ const adsController = {
       res.send("There has been an error while reading the ads");
     }
   },
+
+  readOne: async (req: Request, res: Response) => {
+    try {
+      const result = await Ad.findOneByOrFail({
+        id: Number.parseInt(req.params.id)
+      })
+      res.send(result)
+    } catch (error) {
+      console.log(error);
+      res.send("an error occured while reading one ad")
+    }
+  },
+
   create: async (req: Request, res: Response) => {
     try {
       /*

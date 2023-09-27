@@ -76,6 +76,8 @@ const RecentAds = () => {
                             title={ad.title}
                             imgUrl={ad.imgUrl}
                             price={ad.price}
+                            description={ad.description}
+                            owner={ad.owner}
                         />
                         <div className="space-between">
                             <button className="button" onClick={() => setTotal(total + ad.price)}>Add price to total</button>

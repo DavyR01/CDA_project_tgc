@@ -17,6 +17,8 @@ app.post("/ad", adsController.create);
 app.delete("/ad", adsController.delete);
 app.put("/ad", adsController.put);
 
+app.get("/ad/:id", adsController.readOne);
+
 app.get("/category", categoryController.read);
 app.post("/category", categoryController.create);
 
