@@ -5,63 +5,63 @@ import CategoryCard, { CategoryCardProps } from "./CategoryCard"
 import { useEffect, useState } from "react"
 import axios from "axios"
 
-const categoriesList: CategoryCardProps[] = [
-    {
-        name: 'Jardinage'
-    },
-    {
-        name: 'Poterie'
-    },
-    {
-        name: 'Peinture'
-    },
-    {
-        name: 'Chaussures'
-    },
-    {
-        name: 'Sculpture'
-    },
-    {
-        name: 'Électroménager'
-    },
-    {
-        name: 'Photographie'
-    },
-    {
-        name: 'Informatique'
-    },
-    {
-        name: 'Vetements'
-    },
-    {
-        name: 'Peche'
-    },
-    {
-        name: 'Outillage'
-    },
-    {
-        name: 'Bébé'
-    },
-    {
-        name: 'Sport'
-    },
-    {
-        name: 'Services'
-    },
-]
+// const categoriesList: CategoryCardProps[] = [
+//     {
+//         name: 'Jardinage'
+//     },
+//     {
+//         name: 'Poterie'
+//     },
+//     {
+//         name: 'Peinture'
+//     },
+//     {
+//         name: 'Chaussures'
+//     },
+//     {
+//         name: 'Sculpture'
+//     },
+//     {
+//         name: 'Électroménager'
+//     },
+//     {
+//         name: 'Photographie'
+//     },
+//     {
+//         name: 'Informatique'
+//     },
+//     {
+//         name: 'Vetements'
+//     },
+//     {
+//         name: 'Peche'
+//     },
+//     {
+//         name: 'Outillage'
+//     },
+//     {
+//         name: 'Bébé'
+//     },
+//     {
+//         name: 'Sport'
+//     },
+//     {
+//         name: 'Services'
+//     },
+// ]
 
 const Header = () => {
     const [categories, setCategories] = useState<CategoryCardProps[]>([])
 
     useEffect(() => {
-        const fetchData = async () => {
+        const fetchCategories = async () => {
             const result = await axios.get<CategoryCardProps[]>("http://localhost:4000/category")
             console.log(result);
             console.log(result.data);
             // console.log(result.headers);
             setCategories(result.data)
         }
-        fetchData()
+        fetchCategories()
     }, [])
 
     return (
