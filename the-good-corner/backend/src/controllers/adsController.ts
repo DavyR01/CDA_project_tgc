@@ -26,6 +26,8 @@ const adsController = {
       await newAd.save();
       */
       await Ad.save(req.body);
+      console.log(req.body);
+
       res.send("Ad has been created");
     } catch (err) {
       res.send("An error occured while creating the ad");

@@ -45,14 +45,14 @@ import axios from "axios"
 const RecentAds = () => {
     const [total, setTotal] = useState(0);
     const [time, setTime] = useState(new Date())
-    const [ads, setAdsFetch] = useState<AdCardProps[]>([])
+    const [ads, setAds] = useState<AdCardProps[]>([])
 
     useEffect(() => {
         const fetchData = async () => {
             try {
                 const result = await axios.get<AdCardProps[]>("http://localhost:4000/ad")
                 console.log(result);
-                setAdsFetch(result.data)
+                setAds(result.data)
             } catch (error) {
                 console.log("error", error);
             }
@@ -71,12 +71,16 @@ const RecentAds = () => {
                     <div key={index}>
                         < AdCard
                             key={ad.imgUrl}
+                            id={ad.id}
                             link={ad.link}
                             title={ad.title}
                             imgUrl={ad.imgUrl}
                             price={ad.price}
                         />
-                        <button className="button" onClick={() => setTotal(total + ad.price)}>Add price to total</button>
+                        <div className="space-between">
+                            <button className="button" onClick={() => setTotal(total + ad.price)}>Add price to total</button>
+                            <button className="button2">Delete</button>
+                        </div>
                     </div>
                 ))}
             </section>
