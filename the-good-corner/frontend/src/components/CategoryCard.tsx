@@ -1,7 +1,8 @@
 import Link from "next/link";
 
 export type CategoryCardProps = {
-    name: string
+    // id: number;
+    name: string;
 }
 
 const CategoryCard = ({ name }: CategoryCardProps) => {

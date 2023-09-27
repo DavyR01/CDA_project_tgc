@@ -1,5 +1,22 @@
-const NewAd = () => {
+import axios from "axios";
+import { useEffect, useState } from "react";
 
+type category = {
+    id: number;
+    name: string;
+}
+
+const NewAd = () => {
+    const [categories, setCategories] = useState<category[]>([])
+
+    useEffect(() => {
+        const fetchCategories = async () => {
+            const result = await axios.get<category[]>("http://localhost:4000/category")
+            console.log(result.data);
+            setCategories(result.data)
+        }
+        fetchCategories()
+    }, [])
 
     return (
         <form onSubmit={(e) => {
@@ -26,21 +43,13 @@ const NewAd = () => {
                 <input className="text-field" name="description" />
             </label>
             <br />
-            <label>
-                Propriétaire : <br />
-                <input className="text-field" name="propriétaire" />
-            </label>
-            <br />
-            <label>
-                Image : <br />
-                <input className="text-field" name="image" />
-            </label>
-            <br />
-            <label>
-                Localisation <br />
-                <input className="text-field" name="localisation" />
-            </label>
-            <br /><br />
+            <select name="category">
+                {categories.map((el) => (
+                    <option value={el.id} key={el.id}>
+                        {el.name}
+                    </option>
+                ))}
+            </select>
             <button className="button"> Submit </button>
         </form>
     );
