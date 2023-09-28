@@ -74,7 +74,7 @@ const Header = () => {
                             <span className="desktop-long-label">THE GOOD CORNER</span>
                         </Link>
                     </h1>
-                    <form className="text-field-with-button">
+                    <form onSubmit={(e) => e.preventDefault()} className="text-field-with-button">
                         <input className="text-field main-search-field" type="search" />
                         <button className="button button-primary">
                             <svg

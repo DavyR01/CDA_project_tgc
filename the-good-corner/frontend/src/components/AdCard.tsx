@@ -10,7 +10,8 @@ export type AdCardProps = {
     owner: string;
 }
 
-const AdCard = ({ title, imgUrl, price, link, id }: AdCardProps) => {
+const AdCard = ({ ...ad }: AdCardProps) => {
+    const { id, imgUrl, title, price } = ad
     return (
         <div className="ad-card-container">
             <Link className="ad-card-link" href={`/ad/${id}`}>

@@ -4,18 +4,23 @@ GET http://localhost:4000/ad
 
 GET http://localhost:4000/ad/3
 
+###
+
+GET http://localhost:4000/ad/?title=peugeot
+
+###
 
 POST http://localhost:4000/ad
 Content-Type: application/json
 
 {
-    "id": 6,
-    "title": "Boat to sell",
+    # "id": 6,
+    "title": "House to sell",
     "description":
-      "My boat is green, working fine. I'm selling it because I've got a new one",
-    "owner": "boat.seller@gmail.com",
-    "price": 1000000,
-    "imgUrl":"https://images.lecho.be/view?iid=dc:113129565&context=ONLINE&ratio=16/9&width=640&u=1508242455000",
+      "My house is green, working fine. I'm selling it because I've got a new one",
+    "owner": "house.seller@gmail.com",
+    "price": 300000,
+    "imgUrl":"https://archello.s3.eu-central-1.amazonaws.com/images/2018/05/11/tobiarchitects1.1526035990.6946.jpg",
     "location": "Paris",
     "createdAt": "2023-09-05T10:13:14.755Z",
     "category" : 2,
@@ -28,7 +33,7 @@ DELETE http://localhost:4000/ad
 Content-Type: application/json
 
 {
-  "id": 2
+  "id": 12
 }
 
 ###

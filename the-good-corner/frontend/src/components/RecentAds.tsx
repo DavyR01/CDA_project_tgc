@@ -63,21 +63,14 @@ const RecentAds = () => {
     return (
         <div>
             <h2>Annonces récentes</h2>
-            <p>Prix total: {total}</p>
+            {/* <p>Prix total: {total}</p>
             <p>{time.toLocaleTimeString()}</p>
-            <button className="button" onClick={() => setTime(new Date())}>Bouton</button>
+            <button className="button" onClick={() => setTime(new Date())}>Bouton</button> */}
             <section className="recent-ads">
-                {ads.map((ad, index) => (
-                    <div key={index}>
+                {ads.map((ad) => (
+                    <div key={ad.id}>
                         < AdCard
-                            key={ad.imgUrl}
-                            id={ad.id}
-                            link={ad.link}
-                            title={ad.title}
-                            imgUrl={ad.imgUrl}
-                            price={ad.price}
-                            description={ad.description}
-                            owner={ad.owner}
+                            {...ad}
                         />
                         <div className="space-between">
                             <button className="button" onClick={() => setTotal(total + ad.price)}>Add price to total</button>
