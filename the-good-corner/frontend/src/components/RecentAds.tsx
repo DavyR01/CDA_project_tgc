@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import AdCard, { AdCardProps } from "./AdCard"
 import axios from "axios"
+import DisplayAds from "./DisplayAds";
 
 // const ads: AdCardProps[] = [
 //     {
@@ -43,16 +44,14 @@ import axios from "axios"
 
 
 const RecentAds = () => {
-    const [total, setTotal] = useState(0);
-    const [time, setTime] = useState(new Date())
-    const [ads, setAds] = useState<AdCardProps[]>([])
+    const [recentAds, setRecentAds] = useState<AdCardProps[]>([])
 
     useEffect(() => {
         const fetchData = async () => {
             try {
                 const result = await axios.get<AdCardProps[]>("http://localhost:4000/ad")
                 console.log(result);
-                setAds(result.data)
+                setRecentAds(result.data)
             } catch (error) {
                 console.log("error", error);
             }
@@ -61,25 +60,9 @@ const RecentAds = () => {
     }, [])
 
     return (
-        <div>
-            <h2>Annonces récentes</h2>
-            {/* <p>Prix total: {total}</p>
-            <p>{time.toLocaleTimeString()}</p>
-            <button className="button" onClick={() => setTime(new Date())}>Bouton</button> */}
-            <section className="recent-ads">
-                {ads.map((ad) => (
-                    <div key={ad.id}>
-                        < AdCard
-                            {...ad}
-                        />
-                        <div className="space-between">
-                            <button className="button" onClick={() => setTotal(total + ad.price)}>Add price to total</button>
-                            <button className="button2">Delete</button>
-                        </div>
-                    </div>
-                ))}
-            </section>
-        </div>
+        <>
+            <DisplayAds ads={recentAds} title="Recent Ads" />
+        </>
     )
 }
 

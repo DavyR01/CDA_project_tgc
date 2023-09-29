@@ -7,7 +7,7 @@ import axios from "axios";
 const AdDetailComponent = () => {
     const router = useRouter();
     console.log(router);
-    const [ads, setAds] = useState<AdCardProps>()
+    const [adsDetails, setAdsDetails] = useState<AdCardProps>()
 
 
     useEffect(() => {
@@ -16,7 +16,7 @@ const AdDetailComponent = () => {
                 const result = await axios.get<AdCardProps>(`http://localhost:4000/ad/${router.query.id}`)
                 console.log(result.data);
                 console.log(result);
-                setAds(result.data)
+                setAdsDetails(result.data)
             } catch (error) {
                 console.log("error", error);
             }
@@ -28,19 +28,19 @@ const AdDetailComponent = () => {
         <>
             <div>Display details of ad with id {router.query.id}</div>
             <main className="main-content">
-                <h2 className="ad-details-title">{ads?.title}</h2>
+                <h2 className="ad-details-title">{adsDetails?.title}</h2>
                 <section className="ad-details">
                     <div className="ad-details-image-container">
-                        <img className="ad-details-image" src={ads?.imgUrl} />
+                        <img className="ad-details-image" src={adsDetails?.imgUrl} />
                     </div>
                     <div className="ad-details-info">
-                        <div className="ad-details-price">{ads?.price} €</div>
+                        <div className="ad-details-price">{adsDetails?.price} €</div>
                         <div className="ad-details-description">
-                            {ads?.description}
+                            {adsDetails?.description}
                         </div>
                         <hr className="separator" />
                         <div className="ad-details-owner">
-                            Annoncée publiée par <b>{ads?.owner}</b> aujourd'hui (9:32).
+                            Annoncée publiée par <b>{adsDetails?.owner}</b> aujourd'hui (9:32).
                         </div>
                         <Link
                             href="mailto:serge@serge.com"
