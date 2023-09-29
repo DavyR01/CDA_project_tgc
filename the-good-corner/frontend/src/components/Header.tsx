@@ -4,6 +4,7 @@ import Link from "next/link"
 import CategoryCard, { CategoryCardProps } from "./CategoryCard"
 import { useEffect, useState } from "react"
 import axios from "axios"
+import { useRouter } from "next/router"
 
 // const categoriesList: CategoryCardProps[] = [
 //     {
@@ -52,6 +53,7 @@ import axios from "axios"
 
 const Header = () => {
     const [categories, setCategories] = useState<CategoryCardProps[]>([])
+    const router = useRouter()
 
     useEffect(() => {
         const fetchCategories = async () => {
@@ -74,8 +76,19 @@ const Header = () => {
                             <span className="desktop-long-label">THE GOOD CORNER</span>
                         </Link>
                     </h1>
-                    <form onSubmit={(e) => e.preventDefault()} className="text-field-with-button">
-                        <input className="text-field main-search-field" type="search" />
+                    <form onSubmit={(e) => {
+                        e.preventDefault();
+
+                        const form = e.target
+                        const formData = new FormData(form as HTMLFormElement);
+
+                        const formJson = Object.fromEntries(formData.entries());
+                        console.log(formJson);
+                        router.push(`/ad/search/${formJson.keyword}`)
+                        // router.push(`/ad/search/house`)
+                    }}
+                        className="text-field-with-button">
+                        <input name="keyword" className="text-field main-search-field" type="search" />
                         <button className="button button-primary">
                             <svg
                                 aria-hidden="true"
@@ -101,6 +114,7 @@ const Header = () => {
                 <nav className="categories-navigation">
                     {categories.map((cat) => (
                         <CategoryCard key={cat.name} name={cat.name} />
+                        // TODO  : a compléter avec un Link et href
                     ))}
                 </nav>
             </header>

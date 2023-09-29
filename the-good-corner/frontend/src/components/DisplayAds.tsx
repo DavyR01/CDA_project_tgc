@@ -10,8 +10,6 @@ const DisplayAds = ({ ads, title }: DisplayAdsType) => {
 
     return (
         <>
-            <h2>Annonces récentes</h2>
-            {/* <h2>{title}</h2> */}
             <section className="recent-ads">
                 {ads.map((ad) => (
                     <div key={ad.id}>

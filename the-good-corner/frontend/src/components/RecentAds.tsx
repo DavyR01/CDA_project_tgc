@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import AdCard, { AdCardProps } from "./AdCard"
+import { AdCardProps } from "./AdCard"
 import axios from "axios"
 import DisplayAds from "./DisplayAds";
 
@@ -61,9 +61,12 @@ const RecentAds = () => {
 
     return (
         <>
+            <h2>Annonces récentes</h2>
             <DisplayAds ads={recentAds} title="Recent Ads" />
         </>
+
     )
+
 }
 
 export default RecentAds
