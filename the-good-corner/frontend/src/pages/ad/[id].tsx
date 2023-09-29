@@ -22,7 +22,7 @@ const AdDetailComponent = () => {
             }
         }
         fetchData()
-    }, [])
+    }, [router.query.id])
 
     return (
         <>
