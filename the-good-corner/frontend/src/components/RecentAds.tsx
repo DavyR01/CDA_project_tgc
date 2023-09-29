@@ -62,7 +62,7 @@ const RecentAds = () => {
     return (
         <>
             <h2>Annonces récentes</h2>
-            <DisplayAds ads={recentAds} title="Recent Ads" />
+            <DisplayAds ads={recentAds} setAds={setRecentAds} title="Recent Ads" />
         </>
 
     )

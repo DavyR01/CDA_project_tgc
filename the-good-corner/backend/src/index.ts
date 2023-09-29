@@ -14,6 +14,7 @@ app.use(express.json());
 
 app.get("/ad", adsController.read);
 app.post("/ad", adsController.create);
+// app.delete("/ad/:id", adsController.delete);
 app.delete("/ad", adsController.delete);
 app.put("/ad", adsController.put);
 

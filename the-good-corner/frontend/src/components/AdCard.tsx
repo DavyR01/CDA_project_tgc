@@ -1,7 +1,7 @@
 import Link from "next/link";
 
 export type AdCardProps = {
-    id?: number;
+    id: number;
     title: string;
     imgUrl: string;
     price: number;
