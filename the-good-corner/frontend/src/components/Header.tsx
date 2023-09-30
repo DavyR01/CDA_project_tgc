@@ -104,7 +104,7 @@ const Header = () => {
         </div>
         <nav className="categories-navigation">
           {categories.map((cat) => (
-            <CategoryCard key={cat.name} name={cat.name} />
+            <CategoryCard key={cat.name} name={cat.name} id={cat.id} />
             // TODO  : a compléter avec un Link et href
           ))}
         </nav>

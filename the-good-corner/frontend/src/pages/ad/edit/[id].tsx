@@ -18,10 +18,12 @@ type Inputs = {
 
 const EditAd = () => {
   const router = useRouter();
-  console.log(router);
+  // console.log(router);
   const [adDetails, setAdDetails] = useState<AdCardProps>()
   const [categories, setCategories] = useState<CategoryCardProps[]>([])
   // const { reset } = useForm()
+  const [title, setTitle] = useState<string>("")
+  const [price, setPrice] = useState<number>()
 
 
   useEffect(() => {
@@ -52,10 +54,6 @@ const EditAd = () => {
     fetchCategories()
   }, [router.query.id])
 
-  const updateAd = () => {
-
-  }
-
   return (
     <>
       <form onSubmit={(e) => {
@@ -64,18 +62,31 @@ const EditAd = () => {
         const form = e.target;
         const formData = new FormData(form as HTMLFormElement);
 
-        const formJson = Object.fromEntries(formData.entries());
-        axios.put("http://localhost:4000/ad", formJson)
-        console.log(formJson);
+        // const formJson = Object.fromEntries(formData.entries());
+
+        const formJson = {
+          idToEdit: router.query.id,
+          newAd: {
+            ...adDetails,
+            price,
+            title,
+          }
+        }
+        try {
+          axios.put("http://localhost:4000/ad", formJson)
+          console.log(formJson);
+        } catch (error) {
+          console.log(error, "An error occured during edit the ad");
+        }
       }}>
         <label>
           Titre de l'annonce : <br />
-          <input defaultValue={adDetails?.title} className="text-field" name="title" />
+          <input onChange={(e) => setTitle(e.target.value)} defaultValue={adDetails?.title} className="text-field" name="title" />
         </label>
         <br />
         <label>
           Prix : <br />
-          <input defaultValue={adDetails?.price} className="text-field" name="price" />
+          <input onChange={(e) => setPrice(parseInt(e.target.value))} defaultValue={adDetails?.price} className="text-field" name="price" />
         </label>
         <br />
         <label>
@@ -104,7 +115,7 @@ const EditAd = () => {
             </option>
           ))}
         </select>
-        <button onClick={() => updateAd()} className="button"> Submit </button>
+        <button className="button"> Submit </button>
       </form>
     </>
   )

@@ -26,7 +26,7 @@ const SearchResults = () => {
             <h3>
                 Search Results page for keyword : {router.query.keyword}
             </h3>
-            <DisplayAds ads={searchAds} title={`Displaying search results for :${router.query.keyword}`} />
+            <DisplayAds ads={searchAds} title={`Displaying search results for :${router.query.keyword}`} setAds={setSearchAds} />
         </>
     )
 }

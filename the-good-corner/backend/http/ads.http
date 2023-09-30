@@ -41,7 +41,7 @@ PUT http://localhost:4000/ad
 Content-Type: application/json
 
 {
-  "idToEdit": 5,
+  "idToEdit": 1,
   "newAd": {
     "title": "new Bike",
     "description":
@@ -49,6 +49,6 @@ Content-Type: application/json
     "owner": "house.seller@gmail.com",
     "price": 650,
     "imgUrl":"https://images.lecho.be/view?iid=dc:113129565&context=ONLINE&ratio=16/9&width=640&u=1508242455000",
-    "location": "Nantes"
+    "location": "Marseille"
   } 
 }

@@ -35,10 +35,16 @@ const adsController = {
 
   readOne: async (req: Request, res: Response) => {
     try {
-      const result = await Ad.findOneByOrFail({
-        id: Number.parseInt(req.params.id)
-      })
-      res.send(result)
+      const result = await Ad.find({
+        where: {
+          id: parseInt(req.params.id)
+        },
+        relations: { category: true },
+      });
+      if (result.length !== 1) {
+        throw new Error('Query error')
+      }
+      res.send(result[0])
     } catch (error) {
       console.log(error);
       res.send("an error occured while reading one ad")
