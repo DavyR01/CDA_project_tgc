@@ -14,11 +14,11 @@ app.use(express.json());
 
 app.get("/ad", adsController.read);
 app.post("/ad", adsController.create);
-// app.delete("/ad/:id", adsController.delete);
+app.get("/ad/:id", adsController.readOne);
 app.delete("/ad", adsController.delete);
+// app.delete("/ad/:id", adsController.delete);
 app.put("/ad", adsController.put);
 
-app.get("/ad/:id", adsController.readOne);
 
 app.get("/category", categoryController.read);
 app.post("/category", categoryController.create);

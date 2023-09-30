@@ -68,7 +68,7 @@ const DisplayAds = ({ ads, setAds, title }: DisplayAdsType) => {
               deleteAd((ad.id))
 
             }}
-              className="button2">Delete</button>
+              className="button button-primary">Delete</button>
           </div>
         ))}
       </section >

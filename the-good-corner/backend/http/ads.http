@@ -2,7 +2,7 @@ GET http://localhost:4000/ad
 
 ###
 
-GET http://localhost:4000/ad/3
+GET http://localhost:4000/ad/66
 
 ###
 
@@ -41,8 +41,14 @@ PUT http://localhost:4000/ad
 Content-Type: application/json
 
 {
-  "idToEdit": 4,
+  "idToEdit": 5,
   "newAd": {
-    "location": "Reims"
+    "title": "new Bike",
+    "description":
+      "My bike is green, working fine. I'm selling it because I've got a new one",
+    "owner": "house.seller@gmail.com",
+    "price": 650,
+    "imgUrl":"https://images.lecho.be/view?iid=dc:113129565&context=ONLINE&ratio=16/9&width=640&u=1508242455000",
+    "location": "Nantes"
   } 
 }
