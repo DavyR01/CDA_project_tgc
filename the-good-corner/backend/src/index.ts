@@ -1,32 +1,25 @@
 import "reflect-metadata";
-import express, { Express } from "express";
-import dataSource from "../config/db";
-import adsController from "./controllers/adsController";
-import categoryController from "./controllers/categoryController";
-import tagController from "./controllers/tagController";
-import cors from "cors";
-
-const app: Express = express();
-const port: number = 4000;
-
-app.use(cors())
-app.use(express.json());
-
-app.get("/ad", adsController.read);
-app.post("/ad", adsController.create);
-app.get("/ad/:id", adsController.readOne);
-app.delete("/ad", adsController.delete);
-// app.delete("/ad/:id", adsController.delete);
-app.put("/ad", adsController.put);
+import { ApolloServer } from '@apollo/server';
+import { startStandaloneServer } from '@apollo/server/standalone';
+import { buildSchema } from "graphql";
 
 
-app.get("/category", categoryController.read);
-app.post("/category", categoryController.create);
 
-app.get("/tag", tagController.read);
-app.post("/tag", tagController.create);
+const start = async ()=> {
+//   await dataSource.initialize();
 
-app.listen(port, async () => {
-  await dataSource.initialize();
-  console.log(`Example app listening on port ${port}`);
-});
+  const schema = await buildSchema({
+    // resolvers: [BookResolver],
+    // emitSchemaFile: true // * This line generate a file schema.graph.ql automatically. it is optional.
+  });
+  const server = new ApolloServer({ schema });
+  
+  const { url } = await startStandaloneServer(server, {
+    listen: { port: 4000 },
+  });
+
+  console.log(`🚀  Server ready at: ${url}`);
+
+}
+
+start()
