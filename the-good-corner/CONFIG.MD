@@ -70,6 +70,9 @@
    https://www.apollographql.com/docs/react/get-started
 
    - `npm install @apollo/client graphql`
+   - in index.js : 
+      import { ApolloClient, InMemoryCache, ApolloProvider, gql } from '@apollo/client';
+   - use the hook useQuery
 
 
 

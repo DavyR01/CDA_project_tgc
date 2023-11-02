@@ -6,18 +6,18 @@ import { Router, useRouter } from "next/router";
 
 type DisplayAdsType = {
   ads: AdCardProps[];
-  title: string;
-  setAds: any;
+  // title: string;
+  // setAds: any;
 }
 
-const DisplayAds = ({ ads, setAds, title }: DisplayAdsType) => {
+const DisplayAds = ({ ads /* setAds, title */ }: DisplayAdsType) => {
 
-  const updateAdsDelete = (idAd: number) => {
+/*   const updateAdsDelete = (idAd: number) => {
     setAds(ads.filter(
       ad => ad.id != idAd
     ))
   }
-
+ */
   const router = useRouter()
   const deleteAd = async (test: number) => {
     try {
@@ -35,7 +35,7 @@ const DisplayAds = ({ ads, setAds, title }: DisplayAdsType) => {
         // }
         // fetchData()
         // router.push('/ad/new')
-        updateAdsDelete(test)
+        // updateAdsDelete(test)
 
       }
       // setRecentAds(result.data)
