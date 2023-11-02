@@ -29,12 +29,12 @@ Content-Type: application/json
 
 ###
 
-DELETE http://localhost:4000/ad/12
+DELETE http://localhost:4000/ad/
 Content-Type: application/json
 
-# {
-#   "id": 12
-# }
+{
+  "id": 66
+}
 
 ###
 PUT http://localhost:4000/ad

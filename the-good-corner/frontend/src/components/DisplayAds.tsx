@@ -6,11 +6,10 @@ import { Router, useRouter } from "next/router";
 
 type DisplayAdsType = {
   ads: AdCardProps[];
-  // title: string;
   // setAds: any;
 }
 
-const DisplayAds = ({ ads /* setAds, title */ }: DisplayAdsType) => {
+const DisplayAds = ({ ads /* setAds */ }: DisplayAdsType) => {
 
 /*   const updateAdsDelete = (idAd: number) => {
     setAds(ads.filter(
@@ -18,7 +17,7 @@ const DisplayAds = ({ ads /* setAds, title */ }: DisplayAdsType) => {
     ))
   }
  */
-  const router = useRouter()
+
   const deleteAd = async (test: number) => {
     try {
       const result = await axios.delete(`http://localhost:4000/ad`, { data: { id: test } })
