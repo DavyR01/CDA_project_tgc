@@ -59,14 +59,18 @@ const Header = () => {
   const router = useRouter()
 
   useEffect(() => {
-    const fetchCategories = async () => {
-      const result = await axios.get<CategoryCardProps[]>("http://localhost:4000/category")
-      console.log(result);
-      console.log(result.data);
-      // console.log(result.headers);
-      setCategories(result.data)
+    try {
+      const fetchCategories = async () => {
+        const result = await axios.get<CategoryCardProps[]>("http://localhost:4000/category")
+        console.log(result);
+        console.log(result.data);
+        // console.log(result.headers);
+        setCategories(result.data)
+        fetchCategories()
+      }
+    } catch (error) {
+      console.log('error display categories :', error);
     }
-    fetchCategories()
   }, [])
 
   return (
