@@ -8,7 +8,7 @@ import { CategoryResolver } from "./resolvers/Category";
 
 
 const start = async ()=> {
-  await dataSource.initialize();
+  await dataSource.initialize(); // Permet de créer la connexion à la base de données.
 
   const schema = await buildSchema({
     resolvers: [AdResolver, CategoryResolver],

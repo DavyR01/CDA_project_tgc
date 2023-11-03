@@ -1,5 +1,8 @@
 
+Pour passer de l'API REST à l'API GraphQL, suivre ces étapes : 
+
 *********************** BACKEND ***********************
+
 
 => Setup & Config Apollo Server & GraphQL :
 
@@ -52,8 +55,9 @@
 => Setup TypeGraphQL : 
 
    https://typegraphql.com/docs/installation.html
+   https://www.npmjs.com/package/type-graphql?activeTab=versions
 
-   - `npm install type-graphql@next graphql-scalars reflect-metadata class-validator`
+   - `npm install type-graphql@next graphql-scalars reflect-metadata class-validator` (on note le tag @next pour installer la version 2.O.O beta de typeGraphQL qui est compatible avec la dernière version 4 de ApolloServer contrairemenent à la V1 de typeGraphQL => voir sur npmjs.com)
    - add import "reflect-metadata";
    - add options in tsconfig.json :
          "emitDecoratorMetadata": true, // add this
