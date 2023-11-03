@@ -1,10 +1,8 @@
+import { category } from "@/types";
 import axios from "axios";
 import { useEffect, useState } from "react";
 
-type category = {
-    id: number;
-    name: string;
-}
+
 
 const NewAd = () => {
     const [categories, setCategories] = useState<category[]>([])

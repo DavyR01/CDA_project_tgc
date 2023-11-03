@@ -1,20 +1,13 @@
-import { AdCardProps } from "@/components/AdCard";
 import Link from "next/link";
 import { useRouter } from "next/router"
 import { useEffect, useState } from "react";
 import axios from "axios";
-import { CategoryCardProps } from "@/components/CategoryCard";
+import { AdCardProps, CategoryCardProps } from "@/types";
 // import { useForm } from "react-hook-form"
 
-type Inputs = {
-  title: string;
-  price: number;
-  description: string;
-  owner: string;
-  imgUrl: string;
-  location: string;
-  category: number;
-}
+
+
+// TODO: Setup type Inputs in form and implement react hook form
 
 const EditAd = () => {
   const router = useRouter();

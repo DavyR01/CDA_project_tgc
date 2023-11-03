@@ -1,5 +1,3 @@
-// import React from 'react'
-
 import Link from "next/link"
 import CategoryCard from "./CategoryCard"
 import { useEffect, useState } from "react"
@@ -7,7 +5,7 @@ import axios from "axios"
 import { useRouter } from "next/router"
 import styles from "../styles/Header.module.css"
 import { ImSearch } from "react-icons/im";
-import { CategoryCardProps } from "@/types/category"
+import { CategoryCardProps } from "@/types"
 
 
 // const categoriesList: CategoryCardProps[] = [

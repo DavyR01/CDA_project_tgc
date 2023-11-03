@@ -1,4 +1,4 @@
-import { CategoryCardProps } from "@/types/category";
+import { CategoryCardProps } from "@/types";
 import Link from "next/link";
 
 

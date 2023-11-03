@@ -1,13 +1,9 @@
 import Link from "next/link";
-import AdCard, { AdCardProps } from "./AdCard"
-import { useEffect, useState } from "react";
+import AdCard from "./AdCard"
 import axios from "axios";
-import { Router, useRouter } from "next/router";
+import { DisplayAdsType } from "@/types";
 
-type DisplayAdsType = {
-  ads: AdCardProps[];
-  // setAds: any;
-}
+
 
 const DisplayAds = ({ ads /* setAds */ }: DisplayAdsType) => {
 

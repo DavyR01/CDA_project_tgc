@@ -1,8 +1,8 @@
-import { AdCardProps } from "@/components/AdCard";
 import Link from "next/link";
 import { useRouter } from "next/router"
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { AdCardProps } from "@/types";
 
 const AdDetailComponent = () => {
   const router = useRouter();

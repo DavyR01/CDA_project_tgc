@@ -1,5 +1,5 @@
-import { AdCardProps } from "@/components/AdCard";
 import DisplayAds from "@/components/DisplayAds";
+import { AdCardProps } from "@/types";
 import axios from "axios";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";

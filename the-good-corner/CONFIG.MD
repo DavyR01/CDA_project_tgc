@@ -85,3 +85,15 @@ To change port default frontend :
       "scripts": {
             "dev": "next dev -p 8080",
       }
+
+
+*********************** A SAVOIR ***********************
+
+- Apollo Client vient remplacer Axios.
+   - gql permet d'écrire les requêtes GraphQL
+   - Le hook useQuery remplace le hook useEffect et le stockage des données stockées par useState lors du fetch avec axios. useQuery équivalent avec useSWR.
+- Apollo Server vient remplacer Express.
+
+- Avant, on traitait les données avec Express et une API REST.
+Maintenant, on traite les données avec Apollo Server et une API GraphQL.
+L'API GraphQL permet d'interagir entre le client et le serveur et vient remplace l'API REST.

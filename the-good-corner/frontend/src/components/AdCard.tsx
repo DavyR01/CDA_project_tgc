@@ -1,19 +1,5 @@
-import Link from "next/link";
+import { AdCardProps } from "@/types";
 
-export type AdCardProps = {
-  id: number;
-  title: string;
-  imgUrl: string;
-  price: number;
-  link: string;
-  description: string;
-  owner: string;
-  location: string;
-  category: {
-    id: number;
-    name: string;
-  };
-};
 
 const AdCard = ({ ...ad }: AdCardProps) => {
   const { id, imgUrl, title, price, link } = ad
