@@ -12,29 +12,29 @@ import { Tag } from "./tag";
 import { Field, ObjectType } from "type-graphql";
 import { Length } from "class-validator";
 
-@ObjectType()
-@Entity()
+@ObjectType() // Provenant de typeGraphQL
+@Entity() // Provenant de typeORM
 export class Ad extends BaseEntity {
 
-  @Field()
+  @Field() // Provenant de typeGraphQL
   @PrimaryGeneratedColumn()
   id: number;
 
-  @Field()
-  @Column()
-  @Length(3)
+  @Field() // Provenant de typeGraphQL
+  @Column() // Provenant de typeORM
+  @Length(3) // Provenant de class-validator
   title: string;
 
-  @Field()
-  @Column()
+  @Field() // Provenant de typeGraphQL
+  @Column() // Provenant de typeORM
   price: number;
 
-  @Field()
-  @Column()
+  @Field() // Provenant de typeGraphQL
+  @Column() // Provenant de typeORM
   description: string;
 
-  @Field()
-  @Column()
+  @Field() // Provenant de typeGraphQL
+  @Column() // Provenant de typeORM
   owner: string;
 
   @Field()
