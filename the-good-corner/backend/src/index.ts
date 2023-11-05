@@ -22,7 +22,7 @@ db.run(`
     location text,
     picture text,
     category_id INTEGER NOT NULL,
-    FOREIGN KEY(category_id) REFERENCES CATEGORY(ID)
+    FOREIGN KEY(category_id) REFERENCES category(ID)
   );
 `);
 

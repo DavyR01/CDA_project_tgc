@@ -15,7 +15,8 @@ INSERT INTO addd (title, description, owner, price, location, category_id)
  VALUES
 ('Boat to sell', 'My Boat is red, working fine.','Boat.seller@gmail.com', 140000, 'Bordeaux', 3),
  ('Plane to sell', '"My Plane is blue, working fine.', 'Plane.seller@gmail.com', 100000000, 'Lyon', 1),
- ('Car to sell', 'My Car is red, working fine.','Car.seller@gmail.com', 12000, 'Bordeaux', 2)
+ ('Car to sell', 'My Car is red, working fine.','Car.seller@gmail.com', 12000, 'Bordeaux', 2),
+ ('Skateboard to sell', 'My Skateboard to sell, very usefull', 'Skateboard.seller@gmail.com', 20, 'Bordeaux', 4)
  ;
 
 -- SELECT * FROM addd;
