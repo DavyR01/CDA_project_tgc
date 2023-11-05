@@ -8,3 +8,14 @@ Content-Type: application/json
 {
     "name": "Indoor"
 }
+
+###
+
+DELETE http://localhost:3000/category
+Content-Type: application/json
+
+{
+    "id": 1
+}
+
+// Si je veux suprimer la catégorie avec id=1, je dois supprimer les ads associés par une FOREIGN_KEY à cette catégorie (id=2 de ad) ou alors mettre en place ON_CASCADE.

@@ -25,6 +25,11 @@ const categoryController = {
       }
     );
   },
+  delete: (req: Request, res: Response) => {
+    db.run("DELETE FROM category WHERE ID = ?;", [req.body.id], () => {
+      res.send("The category has been deleted")
+    });
+  },
 };
 
 export default categoryController;

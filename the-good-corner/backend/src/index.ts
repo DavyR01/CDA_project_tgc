@@ -42,6 +42,7 @@ app.put("/ad", adsController.put);
 
 app.get("/category", categoryController.read);
 app.post("/category", categoryController.create);
+app.delete("/category", categoryController.delete);
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`);
