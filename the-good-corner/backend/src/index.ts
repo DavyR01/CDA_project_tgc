@@ -12,7 +12,7 @@ export const db = new sqlite3.Database("good_corner.sqlite");
 db.run(`PRAGMA foreign_keys = ON;`);
 
 db.run(`
-  CREATE TABLE IF NOT EXISTS ad (
+  CREATE TABLE IF NOT EXISTS addd (
     ID INTEGER PRIMARY KEY AUTOINCREMENT,
     title text,
     description text,

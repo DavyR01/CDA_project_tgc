@@ -3,14 +3,14 @@ import { db } from "../index";
 
 const adsController = {
   read: (req: Request, res: Response) => {
-    db.all("SELECT * from ad", (err, rows) => {
+    db.all("SELECT * from addd", (err, rows) => {
       res.send(rows);
     });
   },
   create: (req: Request, res: Response) => {
     db.run(
       `
-      INSERT INTO ad (title, description, owner, price, location, createdAt, picture, category_id)
+      INSERT INTO addd (title, description, owner, price, location, createdAt, picture, category_id)
       VALUES (
         "${req.body.title}",
         "${req.body.description}",
@@ -33,14 +33,14 @@ const adsController = {
     );
   },
   delete: (req: Request, res: Response) => {
-    db.run("DELETE FROM ad WHERE ID = ?;", [req.body.id], () => {
+    db.run("DELETE FROM addd WHERE ID = ?;", [req.body.id], () => {
       res.send("The ad has been deleted");
     });
   },
   put: (req: Request, res: Response) => {
     db.run(
       `
-        UPDATE ad
+        UPDATE addd
         SET
           title=?,
           description=?,
