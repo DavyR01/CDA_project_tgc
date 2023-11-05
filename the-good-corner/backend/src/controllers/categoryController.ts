@@ -3,14 +3,14 @@ import { db } from "../index";
 
 const categoryController = {
   read: (req: Request, res: Response) => {
-    db.all("SELECT * from category", (err, rows) => {
+    db.all("SELECT * from categoryyy", (err, rows) => {
       res.send(rows);
     });
   },
   create: (req: Request, res: Response) => {
     db.run(
       `
-      INSERT INTO category (name)
+      INSERT INTO categoryyy (name)
       VALUES (
         "${req.body.name}"
       );
@@ -26,8 +26,12 @@ const categoryController = {
     );
   },
   delete: (req: Request, res: Response) => {
-    db.run("DELETE FROM category WHERE ID = ?;", [req.body.id], () => {
-      res.send("The category has been deleted")
+    db.run("DELETE FROM categoryyy WHERE ID = ?;", [req.body.id], (err: any, rows: any) => {
+      if (err) {
+        console.log("error during deleted category");
+      } else {
+        res.send("The category has been deleted")
+      }
     });
   },
 };

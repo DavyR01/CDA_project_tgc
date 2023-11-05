@@ -19,6 +19,14 @@ INSERT INTO addd (title, description, owner, price, location, category_id)
  ('Skateboard to sell', 'My Skateboard to sell, very usefull', 'Skateboard.seller@gmail.com', 20, 'Bordeaux', 4)
  ;
 
+ INSERT INTO categoryyy(name)
+ VALUES
+ ('Bricolage'),
+ ('Jardinage'),
+ ('IT'),
+ ('Plomberie')
+ ;
+
 -- SELECT * FROM addd;
 
 /* SELECT * FROM addd

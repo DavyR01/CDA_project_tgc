@@ -22,12 +22,12 @@ db.run(`
     location text,
     picture text,
     category_id INTEGER NOT NULL,
-    FOREIGN KEY(category_id) REFERENCES category(ID)
+    FOREIGN KEY(category_id) REFERENCES categoryyy(ID)
   );
 `);
 
 db.run(`
-  CREATE TABLE IF NOT EXISTS category (
+  CREATE TABLE IF NOT EXISTS categoryyy (
     ID INTEGER PRIMARY KEY AUTOINCREMENT,
     name text
   );
