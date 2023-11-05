@@ -3,7 +3,7 @@ import { db } from "../index";
 
 const categoryController = {
   read: (req: Request, res: Response) => {
-    db.all("SELECT * from CATEGORY", (err, rows) => {
+    db.all("SELECT * from category", (err, rows) => {
       res.send(rows);
     });
   },

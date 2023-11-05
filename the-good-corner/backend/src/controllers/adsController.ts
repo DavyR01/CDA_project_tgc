@@ -3,7 +3,7 @@ import { db } from "../index";
 
 const adsController = {
   read: (req: Request, res: Response) => {
-    db.all("SELECT * from AD", (err, rows) => {
+    db.all("SELECT * from ad", (err, rows) => {
       res.send(rows);
     });
   },
