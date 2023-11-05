@@ -10,9 +10,9 @@ export class CategoryResolver {
   }
 
   @Mutation(() => String)
-  async deleteCategoryById(@Arg("id") id: number) {
+  async deleteCategoryById(@Arg("idd") myId: number) {
     const categoryToDelete = await Category.findOneByOrFail({
-      id: id,
+      id: myId,
     });
     categoryToDelete.remove();
     return "The Category has been deleted";
