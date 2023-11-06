@@ -25,6 +25,13 @@ const adsController = {
 
       await newAd.save();
       */
+
+/*       const newAd = new Ad()
+      newAd.title = req.body.title
+      newAd.price = req.body.price
+      newAd.description = req.body.description
+      await newAd.save() */
+
       await Ad.save(req.body);
       res.send("Ad has been created");
     } catch (err) {
