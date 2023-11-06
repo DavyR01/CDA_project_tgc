@@ -51,13 +51,13 @@ const adsController = {
         WHERE id=?
       `,
       [
-        req.body.newAd.title,
+        req.body.newAd.title, // On a défini newAd dans la requete HTTP côté client (ads.http)
         req.body.newAd.description,
         req.body.newAd.price,
         req.body.newAd.createdAt,
         req.body.newAd.picture,
         req.body.newAd.location,
-        req.body.idToEdit,
+        req.body.idToEdit, // On a défini idToEdit qui est l'id de l'annonce que l'on veut modifier dans la requete HTTP côté client (ads.http)
       ],
       (err) => {
         if (err) {
