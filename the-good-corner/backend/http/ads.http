@@ -18,6 +18,8 @@ Content-Type: application/json
     "category_id" : 3
   }
 
+ // L'id n'est plus nécessaire car depuis que l'on utilise SQLite, les id sont crées automatiquement et auto-incrémentés.
+
 ###
 
 DELETE http://localhost:3000/ad

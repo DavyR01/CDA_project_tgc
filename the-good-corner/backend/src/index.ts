@@ -9,7 +9,7 @@ const port: number = 3000;
 
 export const db = new sqlite3.Database("good_corner.sqlite");
 
-db.run(`PRAGMA foreign_keys = ON;`);
+db.run(`PRAGMA foreign_keys = ON;`); // En SQLite, si l'on souhaite avoir des messages d'erreur en cas d'incohérence avec les FOREIGN KEYS, cette commande est nécessaire.
 
 db.run(`
   CREATE TABLE IF NOT EXISTS addd (
