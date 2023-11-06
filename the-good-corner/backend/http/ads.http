@@ -17,6 +17,8 @@ Content-Type: application/json
     "createdAt": "2023-09-05T10:13:14.755Z"
   }
 
+  // Ici, on a besoin de préciser l'ID lorsque l'on fait un POST, car la DB n'est pas géré par une database driver (SGBD comme SQLite...). Donc l'id n'est pas généré automatiquement et auto incrémenté.
+
 ###
 
 DELETE http://localhost:3000/ad
@@ -25,6 +27,8 @@ Content-Type: application/json
 {
   "id": 0
 }
+
+# Pour delete, l'id est considéré comme l'index de notre tableau d'objets ads défini dans data.ts et non pas comme l'id de l'objet en question.
 
 ###
 PUT http://localhost:3000/ad
