@@ -7,7 +7,7 @@ const adsController = {
     try {
       const result = await Ad.find({
         relations: {
-          category: true,
+          categoryId: true, // Changer en category car lorsque SQLite génère la database, avec category, il va gérer la FOREIN KEY en ajoutant id sur le suffixe du nom qu'on lui aura attribué.
           tags: true,
         },
       });
