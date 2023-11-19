@@ -4,6 +4,7 @@ import AdCard, { AdCardProps } from "./AdCard";
 const RecentAds = () => {
   const [total, setTotal] = useState(0);
   const [time, setTime] = useState(new Date());
+  const [time2, setTime2] = useState(new Date());
   const everyRender = () => {
     console.log("This will be displayed on every render");
   };
@@ -12,10 +13,16 @@ const RecentAds = () => {
   useEffect(() => {
     const firstRenderOnly = () => {
       console.log("this will be displayed on the first render only");
-      setTotal(1000);
+      setTotal(total + 2000);
     };
     firstRenderOnly();
-  }, [time]);
+  }, []);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setTime2(new Date());
+    }, 1000)
+  }, [time])
 
   const ads: AdCardProps[] = [
     {
@@ -59,7 +66,7 @@ const RecentAds = () => {
     <>
       <h2>Annonces récentes</h2>
       <p>Total : {total} €</p>
-      <p>Last Update {time.toTimeString()}</p>
+      <p>Last Update {time.toLocaleTimeString()}</p>
       <button
         onClick={() => {
           setTime(new Date());
@@ -67,6 +74,7 @@ const RecentAds = () => {
       >
         Update time
       </button>
+      <p>Now : {time2.toTimeString()}</p>
       <section className="recent-ads">
         {ads.map((ad) => (
           <div key={ad.title}>
