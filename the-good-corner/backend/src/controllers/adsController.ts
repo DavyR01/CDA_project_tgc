@@ -62,11 +62,11 @@ const adsController = {
       if (errors.length > 0) {
         throw new Error(`Validation failed!`);
       } else {
-        await newAd.save();
+        await newAd.save(); // Permet de l'enregistrer dans la base de données. D'abord, on crée une nouvelle Ad, on la valide pour on l'enregistrer au lieu de l'enregistrer directement.
       }
-      res.send("Ad has been created");
+      res.send("Ad has been created !!!!");
     } catch (err) {
-      res.status(400).send("An error occured while creating the ad");
+      res.status(400).send("An error occured while creating the ad !!!!!");
     }
   },
   delete: async (req: Request, res: Response) => {
