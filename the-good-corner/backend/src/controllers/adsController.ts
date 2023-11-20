@@ -8,9 +8,9 @@ const adsController = {
     let result: Ad[] = [];
 
     try {
-      if (req.query.title !== undefined) {
+      if (req.query.myTitle !== undefined) {
         result = await Ad.find({
-          where: { title: Like(`%${req.query.title}%`) },
+          where: { title: Like(`%${req.query.myTitle}%`) },
           relations: {
             category: true,
             tags: true,
