@@ -39,12 +39,12 @@ const Header = () => {
             // Or you can work with it as a plain object:
             const formJson = Object.fromEntries(formData.entries());
             console.log(formJson);
-            router.push(`/ad/search/${formJson.keyword}`);
+            router.push(`/ad/search/${formJson.keywooord}`);
           }}
           className="text-field-with-button"
         >
           <input
-            name="keyword"
+            name="keywooord"
             className="text-field main-search-field"
             type="search"
           />
