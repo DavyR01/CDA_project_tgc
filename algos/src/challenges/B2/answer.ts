@@ -9,15 +9,35 @@
  */
 
 // ↓ uncomment bellow lines and add your response!
-/* 
+
 export default function ({
   messages,
 }: {
   messages: MessageWithImages[];
 }): string[] {
+  // console.log(messages)
+  let newGalleryMedias: string[] = [];
+  let messagesSorted = [...messages]
+
+  messagesSorted.sort((r1, r2) => (r1.sentAt > r2.sentAt) ? 1 : (r1.sentAt < r2.sentAt) ? -1 : 0);
+
+  // console.log(messagesSorted)
+  // console.log(messages) // originel
+
+  messagesSorted.forEach(message => {
+    // console.log(message.images)
+    message.images.map(image => {
+      // console.log(image)
+      if (!newGalleryMedias.includes(image)) {
+        newGalleryMedias.push(image)
+      }
+    })
+  })
+  console.log(newGalleryMedias);
+  
   return []
 }
- */
+
 
 // used interfaces, do not touch
 export interface MessageWithImages {
