@@ -21,6 +21,8 @@ const start = async ()=> {
   });
 
   console.log(`🚀  Server ready at: ${url}`);
+  console.log('hello');
+  console.log('hello 2'); 
 
 }
 
