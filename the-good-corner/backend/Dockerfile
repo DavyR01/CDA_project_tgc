@@ -1,18 +1,7 @@
-# FROM node:lts-alpine
-
-# RUN mkdir /app
-# WORKDIR /app
-# COPY package*.json ./
-# RUN npm i
-# COPY src src
-
-# # CMD npm start
-
-
-
-
-
 FROM node:lts-alpine
+
+RUN apk --no-cache add curl 
+# permet d'installer le package curl sur le container docker du backend avec node alpine. 
 
 # RUN mkdir /app
 WORKDIR /app
