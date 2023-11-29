@@ -1,5 +1,5 @@
-import Layout from "@/components/Layout";
-import "@/styles/globals.css";
+import Layout from "../components/Layout";
+import "../styles/globals.css";
 import type { AppProps } from "next/app";
 import dynamic from "next/dynamic";
 import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client';

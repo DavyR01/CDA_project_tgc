@@ -1,0 +1,22 @@
+services:
+    server:
+        build: ./backend
+        ports: 
+            - 4000:4000
+        command: npm run start
+        volumes: 
+            - ./backend/src/:/app/src/
+    client:
+        build: ./frontend
+        ports:
+            - 3000:3000
+        command: npm run dev
+        volumes: 
+            - ./frontend/src/:/app/src/
+            # - ./client/public/:/app/public
+        # environment: 
+        #     - WDS_SOCKET_PORT=8000
+    mongodb:
+        image: mongo
+        volumes: 
+            - ./data:/data/db
