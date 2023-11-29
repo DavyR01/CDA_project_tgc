@@ -66,6 +66,22 @@ Pour passer de l'API REST à l'API GraphQL, suivre ces étapes :
 
 
 
+=> Setup Docker :
+
+   - Create and complete Dockerfile in backend and frontend folders respectively.
+   - Create and complete docker-compose.yml to the root project.
+   - launch the script `docker-compose up --build`
+
+=> Install Postgres with docker :
+
+   - To install postgres with Docker instead of sqlite : 
+      - add and complete "db" in `docker-compose.yml`
+      - Modify configuration file `db.ts`. Replace type sqlite by postgres...
+      - Pull out sqlite from package.json.
+      - Install postgreSQL with launching script : `npm i pg`
+      - re-launch the script `docker-compose up --build`. It still triggers `npm i` automatically every time a change is made.
+
+
 *********************** FRONTEND ***********************
 
 

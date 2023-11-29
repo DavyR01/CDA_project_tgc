@@ -9,9 +9,13 @@ const NewAd = () => {
 
     useEffect(() => {
         const fetchCategories = async () => {
-            const result = await axios.get<category[]>("http://localhost:4000/category")
-            console.log(result.data);
-            setCategories(result.data)
+            try {
+                const result = await axios.get<category[]>("http://localhost:4000/category")
+                console.log(result.data);
+                setCategories(result.data)
+            } catch (error) {
+                console.log('an error occured during fetching categories', error);
+            }
         }
         fetchCategories()
     }, [])
