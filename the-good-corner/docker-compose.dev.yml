@@ -1,22 +1,44 @@
 services:
-    server:
+    backend:
         build: ./backend
-        ports: 
+        ports:
             - 4000:4000
-        command: npm run start
-        volumes: 
+        #     command: npm run start
+        volumes:
             - ./backend/src/:/app/src/
-    client:
+            # Le volume permet d'avoir les modifications en direct sans la nécessité d'arrêter et de redémarrer le serveur. 
+        healthcheck:
+            test: 'curl --fail --request POST --header ''content-type: application/json'' --url ''http://localhost:4000'' --data ''{"query":"query { __typename }"}'' || exit 1'
+            interval: 5s
+            timeout: 5s
+            retries: 10
+        depends_on:
+            db:
+                # nom du service 
+                condition: service_healthy
+
+    frontend:
         build: ./frontend
         ports:
             - 3000:3000
-        command: npm run dev
-        volumes: 
+        # command: npm run dev
+        volumes:
             - ./frontend/src/:/app/src/
             # - ./client/public/:/app/public
         # environment: 
         #     - WDS_SOCKET_PORT=8000
-    mongodb:
-        image: mongo
-        volumes: 
-            - ./data:/data/db 
+        depends_on:
+            backend:
+                condition: service_healthy
+
+    db:
+        image: postgres
+        restart: always
+        environment:
+            POSTGRES_PASSWORD: valuePassword
+        healthcheck:
+            test: ["CMD-SHELL", "pg_isready -d postgres -U postgres"]
+            interval: 10s
+            timeout: 5s
+            retries: 5
+            # start_period: 30s

@@ -12,7 +12,7 @@ const start = async ()=> {
 
   const schema = await buildSchema({
     resolvers: [AdResolver, CategoryResolver],
-    // emitSchemaFile: true // * This line generate a file schema.graph.ql automatically. it is optional.
+    // emitSchemaFile: true // * This line generate a file schema.graph.ql automatically. it is optional. To be withdrawn in production.
   });
   const server = new ApolloServer({ schema });
   
