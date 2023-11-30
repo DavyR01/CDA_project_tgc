@@ -1,27 +1,11 @@
 import { category } from "@/types";
 import axios from "axios";
 import { useEffect, useState } from "react";
-import {useForm, SubmitHandler} from "react-hook-form"
 
-type Inputs = {
-    title: string;
-    price: number;
-    description: string;
-    owner: string;
-    imageUrl: string;
-    location: string;
-    category: number;
-};
+
 
 const NewAd = () => {
     const [categories, setCategories] = useState<category[]>([])
-    const {
-        register,
-        handleSubmit,
-        watch,
-        formState: { errors },
-    } = useForm<Inputs>()
-
 
     useEffect(() => {
         const fetchCategories = async () => {
@@ -36,68 +20,63 @@ const NewAd = () => {
         fetchCategories()
     }, [])
 
+    const handleSubmit = (e: any) => {
+        e.preventDefault();
 
-    const onSubmit: SubmitHandler<Inputs> = async (data) => {
-        console.log(data)
         try {
-            if (Object.keys(data).length > 0) {
-                await axios.post("http://localhost:4000/ad", data)
-                console.log(data)
-            } else {
-                console.log('Aucune donnée à envoyer !');
-            }
-        } catch (error) {
-            console.log('an error occured during submit form :', error);
-        }
+            const form = e.target;
+            const formData = new FormData(form as HTMLFormElement);
+    
+            const formJson = Object.fromEntries(formData.entries());
+            axios.post("http://localhost:4000/ad", formJson)
+            console.log(formJson);
+        } catch (e) {
+            console.log("an error occured during submit form ", e);
+            
+        } 
     }
 
     return (
-        <form onSubmit={handleSubmit(onSubmit)}>
-
+        <form onSubmit={(e) => {
+            handleSubmit(e)
+        }}>
             <label>
                 Titre de l'annonce : <br />
-                <input className="text-field" {...register("title")} {...register("title")} />
+                <input className="text-field" name="title" />
             </label>
-
             <br />
             <label>
                 Prix : <br />
-                <input className="text-field" {...register("price")}/>
+                <input className="text-field" name="price" />
             </label>
-
             <br />
             <label>
                 Description : <br />
-                <input className="text-field" {...register("description")}/>
+                <input className="text-field" name="description" />
             </label>
-
             <br />
             <label>
                 Nom du vendeur : <br />
-                <input className="text-field" {...register("owner")}/>
+                <input className="text-field" name="owner" />
             </label>
-
             <br />
             <label>
                 URL de l'image : <br />
-                <input className="text-field" {...register("imageUrl")} />
+                <input className="text-field" name="imgUrl" />
             </label>
-
             <br />
             <label>
                 Ville : <br />
-                <input className="text-field" {...register("location")} />
-            </label>
-
-            <br />
-            <select {...register("category")} >
+                <input className="text-field" name="location" />
+            </label><br />
+            <select name="category">
                 {categories.map((el) => (
                     <option value={el.id} key={el.id}>
                         {el.name}
                     </option>
                 ))}
             </select>
-            <input className="button" type="submit" />
+            <button className="button"> Submit </button>
         </form>
     );
 }
