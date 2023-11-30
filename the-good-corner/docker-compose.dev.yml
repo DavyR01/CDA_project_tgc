@@ -42,3 +42,11 @@ services:
             timeout: 5s
             retries: 5
             # start_period: 30s
+
+    imagesupload:
+        build: ./imagesupload
+        volumes:
+        - ./imagesupload/src:/app/src
+        - ./imagesupload/uploads:/app/uploads
+        ports:
+        - 8000:8000
