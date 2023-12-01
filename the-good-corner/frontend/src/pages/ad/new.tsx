@@ -1,7 +1,7 @@
 import { category } from "@/types";
 import axios from "axios";
 import { useEffect, useState } from "react";
-import {useForm, SubmitHandler} from "react-hook-form"
+import { useForm, SubmitHandler } from "react-hook-form"
 
 type Inputs = {
     title: string;
@@ -22,6 +22,9 @@ const NewAd = () => {
         formState: { errors },
     } = useForm<Inputs>()
 
+    const [file, setFile] = useState<File>();
+    const [imageURL, setImageURL] = useState<String>();
+
 
     useEffect(() => {
         const fetchCategories = async () => {
@@ -35,6 +38,22 @@ const NewAd = () => {
         }
         fetchCategories()
     }, [])
+
+    const handleImageUpload = async () => {
+        if (file) {
+            const url = "http://localhost:8000/upload";
+            const formData = new FormData();
+            formData.append("file", file, file.name);
+            try {
+                const response = await axios.post(url, formData);
+                setImageURL(response.data.filename);
+            } catch (err) {
+                console.log("error", err);
+            }
+        } else {
+            alert("select a file to upload");
+        }
+    }
 
 
     const onSubmit: SubmitHandler<Inputs> = async (data) => {
@@ -52,54 +71,78 @@ const NewAd = () => {
     }
 
     return (
-        <form onSubmit={handleSubmit(onSubmit)}>
+        <>
+            <h1>React File Upload</h1>
+            <input
+                type="file"
+                onChange={(e) => {
+                    if (e.target.files) {
+                        setFile(e.target.files[0]);
+                    }
+                }}
+            />
+            <button onClick={handleImageUpload}>Upload Image</button>
 
-            <label>
-                Titre de l'annonce : <br />
-                <input className="text-field" {...register("title")} {...register("title")} />
-            </label>
+            {imageURL ? (
+                <>
+                    <br />
+                    <img
+                        width={"500"}
+                        alt="uploadedImg"
+                        src={"http://localhost:8000" + imageURL}
+                    />
+                    <br />
+                </>
+            ) : null}
+            <form onSubmit={handleSubmit(onSubmit)}>
 
-            <br />
-            <label>
-                Prix : <br />
-                <input className="text-field" {...register("price")}/>
-            </label>
+                <label>
+                    Titre de l'annonce : <br />
+                    <input className="text-field" {...register("title")} {...register("title")} />
+                </label>
 
-            <br />
-            <label>
-                Description : <br />
-                <input className="text-field" {...register("description")}/>
-            </label>
+                <br />
+                <label>
+                    Prix : <br />
+                    <input className="text-field" {...register("price")} />
+                </label>
 
-            <br />
-            <label>
-                Nom du vendeur : <br />
-                <input className="text-field" {...register("owner")}/>
-            </label>
+                <br />
+                <label>
+                    Description : <br />
+                    <input className="text-field" {...register("description")} />
+                </label>
 
-            <br />
-            <label>
-                URL de l'image : <br />
-                <input className="text-field" {...register("imageUrl")} />
-            </label>
+                <br />
+                <label>
+                    Nom du vendeur : <br />
+                    <input className="text-field" {...register("owner")} />
+                </label>
 
-            <br />
-            <label>
-                Ville : <br />
-                <input className="text-field" {...register("location")} />
-            </label>
+                {/* <label>
+                    URL de l'image : <br />
+                    <input className="text-field" {...register("imageUrl")} />
+                </label> */}
 
-            <br />
-            <select {...register("category")} >
-                {categories.map((el) => (
-                    <option value={el.id} key={el.id}>
-                        {el.name}
-                    </option>
-                ))}
-            </select>
-            <input className="button" type="submit" />
-        </form>
+                <br />
+                <label>
+                    Ville : <br />
+                    <input className="text-field" {...register("location")} />
+                </label>
+
+                <br />
+                <select {...register("category")} >
+                    {categories.map((el) => (
+                        <option value={el.id} key={el.id}>
+                            {el.name}
+                        </option>
+                    ))}
+                </select>
+                <input className="button" type="submit" />
+            </form>
+        </>
     );
+
 }
 
 export default NewAd;
