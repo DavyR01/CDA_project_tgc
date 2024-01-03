@@ -20,14 +20,16 @@ const LoginPage = () => {
 
                // Or you can work with it as a plain object:
                const formJson = Object.fromEntries(formData.entries());
-               console.log(formJson);
+               console.log('formJson :', formJson);
 
                const result = await handleLogin({
                   variables: {
                      userData1: formJson,
                   },
                });
-               console.log("result handleLogin : ", result);
+               console.log("result userData1 : ", result);
+               console.log("result data login : token => ", result.data.login);
+               localStorage.setItem("jwt token", result.data.login)
             }}
             className="text-field-with-button"
          >
