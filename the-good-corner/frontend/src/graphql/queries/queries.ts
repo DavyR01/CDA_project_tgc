@@ -10,7 +10,7 @@ export const GET_ALL_CATEGORIES = gql`
 `;
 
 export const LOGIN = gql`
-query Query($userData: UserInput!) {
-  login(UserData: $userData)
+query Query($userData1: UserInput!) {
+  login(UserData: $userData1)
 }
 `;

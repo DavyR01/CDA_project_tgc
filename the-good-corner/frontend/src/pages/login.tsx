@@ -24,7 +24,7 @@ const LoginPage = () => {
 
                const result = await handleLogin({
                   variables: {
-                     userData: formJson,
+                     userData1: formJson,
                   },
                });
                console.log("result handleLogin : ", result);
@@ -32,12 +32,12 @@ const LoginPage = () => {
             className="text-field-with-button"
          >
             <input
-               name="email"
+               name="email2"
                className="text-field main-search-field"
                type="text"
             />
             <input
-               name="password"
+               name="password1"
                className="text-field main-search-field"
                type="password"
             />

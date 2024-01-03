@@ -10,7 +10,7 @@ export class User extends BaseEntity {
 
   @Field()
   @Column({ unique: true })
-  email: string;
+  email2: string;
 
   @Column()
   hashedPassword: string;

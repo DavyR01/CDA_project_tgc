@@ -31,12 +31,12 @@ const RegisterPage = () => {
             className="text-field-with-button"
          >
             <input
-               name="email"
+               name="email2"
                className="text-field main-search-field"
                type="text"
             />
             <input
-               name="password"
+               name="password1"
                className="text-field main-search-field"
                type="password"
             />
