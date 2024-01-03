@@ -1,16 +1,17 @@
-import { REGISTER } from "@/graphql/mutations/mutations";
-import { useQuery, useMutation } from "@apollo/client";
+import { LOGIN } from '@/graphql/queries/queries';
+import { useLazyQuery } from '@apollo/client';
+import React from 'react';
 
-const RegisterPage = () => {
+const LoginPage = () => {
 
    const [
-      handleRegister,
+      handleLogin,
       { data, loading, error },
-   ] = useMutation(REGISTER);
+   ] = useLazyQuery(LOGIN);
 
    return (
       <div>
-         <p>Register Page</p>
+         <p>Login Page</p>
          <form
             onSubmit={async (e) => {
                e.preventDefault();
@@ -21,12 +22,12 @@ const RegisterPage = () => {
                const formJson = Object.fromEntries(formData.entries());
                console.log(formJson);
 
-               const result = await handleRegister({
+               const result = await handleLogin({
                   variables: {
-                     newUserData: formJson,
+                     userData: formJson,
                   },
                });
-               console.log("result handleRegister : ", result);
+               console.log("result handleLogin : ", result);
             }}
             className="text-field-with-button"
          >
@@ -41,12 +42,12 @@ const RegisterPage = () => {
                type="password"
             />
             <button className="button button-primary">
-               Register
+               Login
             </button>
          </form>
       </div>
-
    )
 }
 
-export default RegisterPage;
+export default LoginPage
+
