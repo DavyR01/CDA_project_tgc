@@ -1,15 +1,28 @@
 import {
   Arg,
   Authorized,
+  Ctx,
   Field,
   InputType,
   Mutation,
+  ObjectType,
   Query,
   Resolver,
 } from "type-graphql";
 import * as argon2 from "argon2";
 import * as jwt from "jsonwebtoken";
 import { User, UserRoleType } from "../entities/user";
+
+@ObjectType()
+class UserInfo {
+  @Field()
+  isLoggedIn: boolean;
+  @Field({nullable: true})
+  email: string;
+  @Field({nullable: true})
+  role: string;
+};
+
 
 @InputType({ description: "New recipe data" })
 class UserInput implements Partial<User> {
@@ -66,5 +79,14 @@ export class UserResolver {
   @Query(() => String)
   async adminQuery() {
     return "you are admin";
+  }
+
+  @Query(() => UserInfo)
+  async whoAmI(@Ctx() ctx: {email: string; role:string}) {
+    if (ctx.email !== undefined) {
+      return {...ctx, isLoggedIn: true};
+    } else {
+      return {isLoggedIn: false}
+    }
   }
 }

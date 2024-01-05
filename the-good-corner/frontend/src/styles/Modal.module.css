@@ -1,0 +1,43 @@
+.container {
+  /* text-align: center; */
+  /* flex:1; */
+  position: absolute;
+  border-radius: 8px;
+  border: 1px solid lightgray;
+  color: black;
+  background-color: rgb(236, 236, 236);
+  border-radius: 10px;
+  padding: 20px;
+  /* width: 50%; */
+  /* height: 50vh; */
+  /* left: 50; */
+  /* top: 50; */
+  /* margin-right: auto;
+  margin-left: auto; */
+  top: 30%; left: 50%; /* à 50%/50% du parent référent */
+  transform: translate(-50%, -50%); /* décalage de 50% de sa propre taille */
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  
+}
+
+#title {
+  text-align: center;
+}
+
+.form {
+  /* text-align: center; */
+  display: flex;
+  /* flex-flow: row ; */
+  justify-content: center;
+  
+}
+/* 
+.form input {
+
+} */
+
+.insideForm {
+  text-align: center;
+}
