@@ -33,7 +33,7 @@ services:
       timeout: 5s
       retries: 20
     volumes:
-      - pgdata:/var/lib/postgresql/data
+      - pgdata2:/var/lib/postgresql/data
   imagesupload:
     build: ./imagesupload
     volumes:
@@ -46,4 +46,4 @@ services:
     ports:
       - 8080:8080
 volumes:
-  pgdata:
+  pgdata2:
