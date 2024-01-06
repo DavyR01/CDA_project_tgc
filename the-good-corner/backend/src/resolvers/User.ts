@@ -6,7 +6,7 @@ import { User } from "../entities/user";
 @InputType({ description: "New recipe data" })
 class UserInput implements Partial<User> {
   @Field()
-  email2: string;
+  email: string;
 
   @Field()
   password1: string;
@@ -24,7 +24,7 @@ export class UserResolver {
   async register(@Arg("newUserData") newUserData: UserInput) {
     try {
       const newUser = new User();
-      newUser.email2 = newUserData.email2;
+      newUser.email = newUserData.email;
       newUser.hashedPassword = await argon2.hash(newUserData.password1);
       await newUser.save();
       return "ok";
@@ -37,13 +37,13 @@ export class UserResolver {
   @Query(() => String)
   async login(@Arg("UserData") UserData: UserInput) {
     try {
-      const user = await User.findOneByOrFail({ email2: UserData.email2 });
+      const user = await User.findOneByOrFail({ email: UserData.email });
       if (
         (await argon2.verify(user.hashedPassword, UserData.password1)) === false
       ) {
         throw new Error("invalid password");
       } else {
-        const token = jwt.sign({ email: user.email2 }, "mysupersecretkey");
+        const token = jwt.sign({ email: user.email }, "mysupersecretkey");
         return token;
       }
     } catch (err) {

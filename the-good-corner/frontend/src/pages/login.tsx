@@ -34,7 +34,7 @@ const LoginPage = () => {
             className="text-field-with-button"
          >
             <input
-               name="email2"
+               name="email"
                className="text-field main-search-field"
                type="text"
             />
