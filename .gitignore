@@ -1,1 +1,4 @@
 node_modules
+.next
+imagesupload
+next-env.d.ts
