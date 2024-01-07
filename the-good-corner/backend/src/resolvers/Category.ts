@@ -5,12 +5,18 @@ import { Arg, Mutation, Query, Resolver } from "type-graphql";
 export class CategoryResolver {
   @Query(() => [Category])
   async allCategories() {
-    const result = await Category.find();
-    return result;
+    try {
+      const result = await Category.find();
+      return result;
+    } catch (error) {
+      return `erreur resolver category : ${error}`
+    }
   }
 
   @Mutation(() => String)
   async deleteCategoryById(@Arg("idd") myId: number) {
+    console.log("id to delete", myId);
+    
     const categoryToDelete = await Category.findOneByOrFail({
       id: myId,
     });
