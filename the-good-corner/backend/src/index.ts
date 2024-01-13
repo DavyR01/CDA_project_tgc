@@ -1,8 +1,8 @@
 import "reflect-metadata";
 import { buildSchema } from "type-graphql";
 import { ApolloServer } from "@apollo/server";
-import * as jwt from "jsonwebtoken";
-import * as argon2 from "argon2";
+import * as jwt from "jsonwebtoken"; // Souligné en rouge mais géré dans Docker
+import * as argon2 from "argon2"; // Souligné en rouge mais géré dans Docker
 import { startStandaloneServer } from "@apollo/server/standalone";
 import dataSource from "../config/db";
 import { CategoryResolver } from "./resolvers/Category";
@@ -66,6 +66,8 @@ const start = async () => {
 
   const schema = await buildSchema({
     resolvers: [CategoryResolver, AdResolver, UserResolver],
+    // emitSchemaFile: true // * This line generate a file schema.graph.ql automatically. it is optional. To be withdrawn in production.
+
     authChecker: ({ context }, roles) => {
       if (roles.length > 0 && context.email) {
         if (roles.includes(context.role)) {

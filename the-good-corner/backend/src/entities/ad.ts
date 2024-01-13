@@ -12,15 +12,15 @@ import { Category } from "./category";
 import { Tag } from "./tag";
 import { Field, ObjectType } from "type-graphql";
 
-@ObjectType()
+@ObjectType() // Provenant de typeGraphQL
 @Entity()
 export class Ad extends BaseEntity {
-  @Field()
+  @Field()// Provenant de typeGraphQL
   @PrimaryGeneratedColumn()
   id: number;
 
-  @Field()
-  @Column()
+  @Field() // Provenant de typeGraphQL
+  @Column()// Provenant de typeORM
   @Length(3)
   title: string;
 

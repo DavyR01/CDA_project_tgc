@@ -5,6 +5,15 @@ import { useContext } from "react";
 import { UserContext } from "./Layout";
 import { GET_ALL_CATEGORIES } from "../graphql/queries/queries";
 
+// const categoriesList: CategoryCardProps[] = [
+//     {
+//         name: 'Jardinage'
+//     },
+//     {
+//         name: 'Poterie'
+//     }
+// ]
+
 const Header = () => {
   const authInfo = useContext(UserContext);
   const { loading, error, data } = useQuery<{

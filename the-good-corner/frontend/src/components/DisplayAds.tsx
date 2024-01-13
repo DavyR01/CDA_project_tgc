@@ -8,6 +8,40 @@ type DisplayAdsType = {
 };
 
 const DisplayAds = ({ ads, title }: DisplayAdsType) => {
+
+  /*   const updateAdsDelete = (idAd: number) => {
+    setAds(ads.filter(
+      ad => ad.id != idAd
+    ))
+  }
+ */
+
+  // const deleteAd = async (test: number) => {
+  //   try {
+  //     const result = await axios.delete(`http://localhost:4000/ad`, { data: { id: test } })
+  //     console.log(result);
+  //     if (result.status === 200) {
+  //       // const fetchData = async () => {
+  //       //     try {
+  //       //         const result = await axios.get<AdCardProps[]>("http://localhost:4000/ad")
+  //       //         console.log(result);
+  //       //         setAds(result.data)
+  //       //     } catch (error) {
+  //       //         console.log("error", error);
+  //       //     }
+  //       // }
+  //       // fetchData()
+  //       // router.push('/ad/new')
+  //       // updateAdsDelete(test)
+
+  //     }
+  //     // setRecentAds(result.data)
+  //   } catch (error) {
+  //     console.log("An error occured during delete ad with id", error);
+  //   }
+  // }
+
+
   return (
     <>
       <h2>{title}</h2>
@@ -34,6 +68,15 @@ const DisplayAds = ({ ads, title }: DisplayAdsType) => {
             >
               Delete
             </button>
+
+            {/* <button onClick={() => {
+              console.log("delete")
+              deleteAd((ad.id))
+
+            }}
+              className="button button-primary">Delete
+            </button> */}
+
           </div>
         ))}
       </section>

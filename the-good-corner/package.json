@@ -1,0 +1,31 @@
+{
+  "name": "the-good-corner",
+  "version": "1.0.0",
+  "description": "A training project in progress",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "concurrently \"cd backend/ && npm start\" \"cd frontend/; npm run dev\"",
+    "remove": "cd backend/ && rmdir node_modules && npm i && cd ../frontend && rmdir node_modules && npm i",
+    "package": "npm i --prefix backend && npm i --prefix frontend",
+    "package2": "cd backend && npm i && cd ../frontend && npm i"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DavyR01/cda_project"
+  },
+  "keywords": [
+    "promise",
+    "async",
+    "GraphQL",
+    "ApolloClient",
+    "ApolloServer",
+    "TypeGraphQL",
+    "TypeScript",
+    "Codegen"
+  ],
+  "author": "firstname name <adresse@gmail.com> ()",
+  "license": "ISC"
+}
+
+

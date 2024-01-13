@@ -1,6 +1,22 @@
 import { gql, useQuery } from "@apollo/client";
 import DisplayAds from "./DisplayAds";
 
+// const ads: AdCardProps[] = [
+//     {
+//         title: "Table",
+//         price: 120,
+//         link: "/ads/table",
+//         imgUrl: "/images/table.webp",
+//     },
+//     {
+//         title: "Bougie",
+//         price: 4,
+//         link: "/ads/bougie",
+//         imgUrl: "/images/bougie.webp",
+//     }
+// ]
+
+
 const GET_ALL_ADS = gql`
   query GetAllAds {
     getAllAds {

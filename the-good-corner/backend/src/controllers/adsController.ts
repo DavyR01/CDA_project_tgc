@@ -57,6 +57,15 @@ const adsController = {
   },
   create: async (req: Request, res: Response) => {
     try {
+
+      /*
+      const newAd = Ad.create(req.body);
+      const tagsToAssociate = await Tag.find(req.body.tags);
+      newAd.tags = tagsToAssociate;
+
+      await newAd.save();
+      */
+
       const newAd = Ad.create(req.body);
       const errors = await validate(newAd);
       if (errors.length > 0) {
