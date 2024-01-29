@@ -10,15 +10,49 @@
  */
 
 // ↓ uncomment bellow lines and add your response!
-/* 
+
 export default function ({
   ads,
 }: {
   ads: AdWithTags[];
 }): AdWithTagsAndClosestAds[] {
-  return [];
+
+  // console.log("ADS : ", ads)
+  const transformedAds: AdWithTagsAndClosestAds[] = [];
+
+  ads.forEach((ad) => {
+    // console.log("ad : ", ad)
+
+    const closestAds: AdWithTags[] = [];
+
+    ads.forEach(otherAd => {
+      // console.log("otherAd : ", otherAd)
+
+      if (otherAd !== ad) {
+
+        const commonTags = ad.tags.filter((tag) => otherAd.tags.includes(tag))
+
+        if (commonTags.length > 0) {
+          closestAds.push(otherAd)
+          // console.log("commonTags : ", commonTags)
+          // console.log("closestAds : ", closestAds)
+        }
+      }
+    })
+
+    const transformedAd: AdWithTagsAndClosestAds = {
+      ...ad,
+      closestAds
+    }
+
+    // console.log("TRANSFORM AD : ", transformedAd)
+    transformedAds.push(transformedAd)
+  })
+
+  // console.log("TRANSFORM ADS : ", transformedAds)
+  return transformedAds;
 }
- */
+
 
 // used interfaces, do not touch
 export interface AdWithTags {

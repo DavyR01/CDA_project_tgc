@@ -6,7 +6,35 @@
  * @param ads Unsorted list of ads
  * @returns Sorted list of ads
  */
-Object.defineProperty(exports, "__esModule", { value: true });
+
+
+// ↓ uncomment bellow lines and add your response!
+export default function ({ ads }: { ads: Ad[] }): Ad[] {
+  // var ads = _a;
+  // console.log(ads);
+  return ads.sort(function (a, b) {
+    
+    if (a.price < b.price) {
+      return -1;
+    }
+    else if (a.price > b.price) {
+      return 1;
+    }
+    if (a.price === b.price) {
+      return a.title.localeCompare(b.title);
+    }
+    return 0
+  });
+}
+
+
+export interface Ad {
+  title: string;
+  price: number;
+  tags: string[];
+}
+
+
 
 let array = [
   { title: "Vélo de course", price: 100, tags: ["Bleu", "Rouge", "Course"] },
@@ -19,26 +47,3 @@ let array = [
   { title: "Pots de peinture (don)", price: 0, tags: [] },
   { title: "Boîtes à thé", price: 5, tags: ["Rangements"] },
 ]
-
-// ↓ uncomment bellow lines and add your response!
-function default_1(_a) {
-  var ads = _a;
-  return ads.sort(function (a, b) {
-    if (a.price < b.price) {
-      return -1;
-    }
-    else if (a.price > b.price) {
-      return 1;
-    }
-    if (a.price === b.price) {
-      return a.title.localeCompare(b.title);
-    }
-  });
-}
-
-console.log(default_1(array));
-
-exports.default = default_1;
-console.log('teeeest');
-
-
