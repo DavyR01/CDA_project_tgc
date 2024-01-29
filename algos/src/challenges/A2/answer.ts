@@ -9,23 +9,43 @@
  */
 
 // ↓ uncomment bellow lines and add your response!
+
 export default function ({
   categories,
 }: {
   categories: Category[];
 }): CategoryWithTags[] {
-  return categories.map((category) => {
-    const newTags: string[] = [];
-    category.ads.forEach((ad) => {
-      ad.tags.forEach((tag) => {
+
+  let result = categories.map((category, index) => {
+    const newTags: string[] = []
+    // console.log(category)
+
+    // console.log(`index: ${index}`);
+    category.ads.forEach(ad => {
+      ad.tags.map(tag => {
+        // console.log(tag)
         if (!newTags.includes(tag)) {
-          newTags.push(tag);
+          newTags.push(tag)
+          // console.log(newTags)
         }
       });
     });
-    return { ...category, tags: newTags.sort() };
+    return { ...category, tags: newTags.sort() }
   });
+  return result
+
+  // for (let prop in categories) {
+  //     let test1 = (categories[prop])
+  //     console.log(test1)
+  //     test1.ads.map((el, index) => {
+  //         let test2 = el.tags
+  //         console.log(index)
+  //         console.log(test2)
+  //     })
+  // }
+
 }
+
 
 // used interfaces, do not touch
 interface Ad {
@@ -42,3 +62,5 @@ export interface Category {
 export interface CategoryWithTags extends Category {
   tags: string[];
 }
+
+
