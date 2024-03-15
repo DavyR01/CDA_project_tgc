@@ -5,7 +5,7 @@ import fs from "fs";
 import path from "path";
 
 const app = express();
-const port = 8000;
+const port = 8001;
 app.use(cors());
 
 app.get("/", (_, res) => {

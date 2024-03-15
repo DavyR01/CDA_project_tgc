@@ -2,7 +2,7 @@ services:
   backend:
     build: ./backend
     ports:
-      - 4000:4000
+      - 4001:4000
     volumes:
       - ./backend/src:/app/src
     healthcheck:
@@ -17,7 +17,7 @@ services:
     build: ./frontend
     env_file: .env.dev
     ports:
-      - 3000:3000
+      - 3001:3000
     volumes:
       - ./frontend/src:/app/src
     depends_on:
@@ -41,10 +41,10 @@ services:
       - ./imagesupload/src:/app/src
       - ./imagesupload/uploads:/app/uploads
     ports:
-      - 8000:8000
+      - 8001:8001
   adminer:
     image: adminer
     ports:
-      - 8080:8080
+      - 8081:8081
 volumes:
   pgdata:
