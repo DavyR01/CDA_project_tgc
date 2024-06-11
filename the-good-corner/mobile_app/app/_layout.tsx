@@ -19,10 +19,10 @@ export default function RootLayout() {
   console.log('host ip after : ', hostIP);
   
   const client = new ApolloClient({
-   //  uri: hostIP ? `http://${hostIP}:7000/graphql` : "http://produrl/graphql",
+    uri: hostIP ? `http://${hostIP}:7000/graphql` : "http://produrl/graphql",
    // uri: `http://${hostIP}:7000/graphql`,
    //  uri: `http://localhost:7000/graphql`,
-    uri: `http://192.168.0.19:7000/graphql`,
+   //  uri: `http://192.168.0.19:7000/graphql`,
     cache: new InMemoryCache(),
   });
   return (
