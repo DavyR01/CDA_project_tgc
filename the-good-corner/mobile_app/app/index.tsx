@@ -29,7 +29,7 @@ export default function Index() {
   if (loading) return <Text>Loading...</Text>;
   if (error) return <Text>Error : {error.message}</Text>;
 
-  console.log(data);
+  console.log("data : ", data);
   return (
     <View
       style={{
@@ -48,7 +48,8 @@ export default function Index() {
           <Text>{el.title}</Text>
           <Image
             style={{ width: 300, height: 200, resizeMode: "contain" }}
-            src={backend_url + el.imageUrl}
+            // src={backend_url + el.imageUrl}
+            source={el.imageUrl}
           />
         </Card>
       ))}
