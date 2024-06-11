@@ -8,7 +8,8 @@
     "start": "concurrently \"cd backend/ && npm start\" \"cd frontend/; npm run dev\"",
     "remove": "cd backend/ && rmdir node_modules && npm i && cd ../frontend && rmdir node_modules && npm i",
     "package": "npm i --prefix backend && npm i --prefix frontend",
-    "package2": "cd backend && npm i && cd ../frontend && npm i"
+    "package2": "cd backend && npm i && cd ../frontend && npm i",
+    "docker": "docker compose up --build"
   },
   "repository": {
     "type": "git",
